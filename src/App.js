@@ -20,17 +20,10 @@ class App extends Component {
   componentDidMount() {
     // create a test endpoint and hit it when the page loads
     // set the response to the 'test' prop on state
-    axios.get('/api/test')
-      .then(res => {
-        this.setState({test: res.data});
-      });
+  
     // hit the get cards endpoint so that our cards show up
     // set the response to the cards prop on state
-    axios.get('/api/cards')
-      .then(res => {
-        this.setState({cards: res.data});
-      }); 
-    
+   
     // hit the update endpoint sio that our update text shows up
     // set the response to the update prop on state
     
@@ -40,14 +33,7 @@ class App extends Component {
   // set the response to update the clicked prop on state
   handleClick() {
     console.log('clicked the button!');
-    axios.get('/api/clicked')
-      .then(res => {
-        console.log(res.data);
-        this.setState({
-          clicked: res.data
-        })
-    })
-    .catch(err => console.log(err));
+
 
   }
   //POST
