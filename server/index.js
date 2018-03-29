@@ -12,6 +12,8 @@ let cards = [1, 2, 3, 4, 5];
 
 // create a get endpoint that sends the updatableText string
 
+// create a get endpoint that sends the text "The button has been clicked!!"
+
 // create a post endpoint that receives a string and sends it back
 
 // create a put endpoint that updates the updatableText string, and then sends the updated string

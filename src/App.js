@@ -39,14 +39,16 @@ class App extends Component {
   //POST
 // create a function to hit an endpoint whenever someone types into the input box
 // set the response to update the input prop on state
-handleChange() {
-
+handleChange(e) {
+  let text = e.target.value;
+  
 }
 
 // PUT
 //create a function to hit an endpoint whenever someone types into the update endpoint
 // set the response to update the update prop on state
-handleUpdate() {
+handleUpdate(e) {
+  let text = e.target.value;
 
 }
 
