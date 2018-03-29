@@ -20,41 +20,78 @@ class App extends Component {
   componentDidMount() {
     // create a test endpoint and hit it when the page loads
     // set the response to the 'test' prop on state
-  
+    axios.get('/api/test')
+      .then(res => {
+        console.log(res.data);
+        this.setState({
+          test: res.data
+        });
+      })
+      .catch(err => console.log(err));
     // hit the get cards endpoint so that our cards show up
     // set the response to the cards prop on state
-   
-    // hit the update endpoint sio that our update text shows up
+   axios.get('/api/cards')
+      .then(res => {
+        this.setState({
+          cards: res.data
+        })
+      })
+    // hit the update endpoint so that our update text shows up
     // set the response to the update prop on state
-    
+    axios.get('/api/update')
+      .then(res => {
+        this.setState({
+          update: res.data
+        })
+      })
   }
 
   //create a function called handle click to hit an endpoint when we click the button
   // set the response to update the clicked prop on state
   handleClick() {
     console.log('clicked the button!');
-
-
+    axios.get('/api/click')
+      .then(res => {
+        this.setState({
+          clicked: res.data
+        })
+      })
   }
   //POST
 // create a function to hit an endpoint whenever someone types into the input box
 // set the response to update the input prop on state
-handleChange() {
+handleChange(e) {
+  axios.post('/api/input', {input: e.target.value})
+  .then(res => {
+    this.setState({
+      input: res.data
+    })
+  })
 
 }
 
 // PUT
 //create a function to hit an endpoint whenever someone types into the update endpoint
 // set the response to update the update prop on state
-handleUpdate() {
-
+handleUpdate(e) {
+  axios.put('/api/update', {input: e.target.value})
+    .then(res => {
+      this.setState({
+        update: res.data
+      })
+    })
 }
 
 // DELETE
 // create an input to handle clicking on a card to remove it
 // update the cards array with the response from state
 handleDelete(index) {
-
+  axios.delete('/api/delete/'+index)
+    .then(res => {
+      this.setState({
+        cards: res.data
+      })
+    })
 }
   render() {
     let displayCards = this.state.cards.map((card, i) => {
