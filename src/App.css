@@ -26,3 +26,28 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.response {
+  font-size: 22px;
+}
+
+.cards {
+  border: 2px solid salmon;
+  height: 300px;
+  width: 400px;
+  margin: auto;
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+.card {
+  border: 2px solid #1c1c1c;
+  height: 50px;
+  width: 100px;
+  margin: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1b1b1b;
+}
