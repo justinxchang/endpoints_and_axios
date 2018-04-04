@@ -31,6 +31,7 @@ app.get('/api/update', (req, res) => {
 app.get('/api/click', (req, res) => {
   res.status(200).send('This button has been clicked');
 })
+
 // create a post endpoint that receives a string and sends it back
 app.post('/api/input', (req, res) => {
   res.status(200).send(req.body.input);

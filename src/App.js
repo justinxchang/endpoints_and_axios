@@ -69,7 +69,6 @@ handleChange(e) {
     })
   })
 
-}
 
 // PUT
 //create a function to hit an endpoint whenever someone types into the update endpoint
@@ -81,7 +80,7 @@ handleUpdate(e) {
         update: res.data
       })
     })
-}
+
 
 // DELETE
 // create an input to handle clicking on a card to remove it
