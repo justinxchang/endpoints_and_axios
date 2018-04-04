@@ -16,6 +16,7 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleFilter = this.handleFilter.bind(this);
   }
   componentDidMount() {
     // create a test endpoint and hit it when the page loads
@@ -93,9 +94,12 @@ handleDelete(index) {
       })
     })
 }
+
+handleFilter(e) {
+ // create an axios request to hit our query endpoint and get filtered cards back
+}
   render() {
     let displayCards = this.state.cards.map((card, i) => {
-      console.log(card);
       return <div className="card" onClick={() => this.handleDelete(i)} key={i}>{card}</div>
     })
     return (
@@ -123,6 +127,10 @@ handleDelete(index) {
           By Typing here: <input type="text" onChange={this.handleUpdate} />
           
         </section>
+        <div>
+          <label>Filter By Multiples of:</label>
+          <input type="number" onChange={this.handleFilter} />
+        </div>
         <section className="cards">
           {displayCards}
         </section>

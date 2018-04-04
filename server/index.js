@@ -5,7 +5,10 @@ const app = express();
 app.use(bodyParser.json());
 
 let updatableText = 'Hi! You can change this text with a put endpoint';
-let cards = [1, 2, 3, 4, 5];
+// THis line creates an array with 25 spots (all undefined)
+// then fills each spot with a 0
+// then replaces each 0 with a number between 1-25. (i+1 in the map)
+let cards = Array(25).fill(0).map((v,i) => i+1);
 
 // create a test endpoint that sends simple text
 app.get('/api/test', (req, res) => {
@@ -13,7 +16,12 @@ app.get('/api/test', (req, res) => {
 })
 // create a get endpoint that sends the cards array
 app.get('/api/cards', (req, res) => {
-  res.status(200).send(cards);
+ // check to see if a query has been passed in, 
+ //if so, filter the cards array by that query 
+ //before sending them back
+ 
+    res.status(200).send(cards);
+  
 })
 // create a get endpoint that sends the updatableText string
 app.get('/api/update', (req, res) => {
