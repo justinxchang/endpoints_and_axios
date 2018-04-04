@@ -68,6 +68,7 @@ handleChange(e) {
       input: res.data
     })
   })
+}
 
 
 // PUT
@@ -80,8 +81,7 @@ handleUpdate(e) {
         update: res.data
       })
     })
-
-
+  }
 // DELETE
 // create an input to handle clicking on a card to remove it
 // update the cards array with the response from state
@@ -95,7 +95,18 @@ handleDelete(index) {
 }
 
 handleFilter(e) {
- // create an axios request to hit our query endpoint and get filtered cards back
+  let filterNum = e.target.value
+  console.log(filterNum);
+
+ // create an axios request to 
+ // hit our query endpoint 
+ // and get filtered cards back
+  axios.get(`/api/cards?filterValue=${filterNum}`)
+    .then(res => {
+      this.setState({
+        cards: res.data
+      })
+    })
 }
   render() {
     let displayCards = this.state.cards.map((card, i) => {

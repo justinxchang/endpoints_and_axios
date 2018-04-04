@@ -14,13 +14,28 @@ let cards = Array(25).fill(0).map((v,i) => i+1);
 app.get('/api/test', (req, res) => {
   res.status(200).send('Test Endpoint Hit!!');
 })
+
+
+
 // create a get endpoint that sends the cards array
+// `/api/cards?filterValue=${filterNum}&filterColor=${color}`
+// {filterValue: filterNum}
 app.get('/api/cards', (req, res) => {
  // check to see if a query has been passed in, 
  //if so, filter the cards array by that query 
  //before sending them back
- 
+  if (req.query.filterValue) {
+    //if filterValue exists after the ?,
+    // do whatever is inside the if statement
+    let valueFromInput = req.query.filterValue
+    let filteredArr = cards
+      .filter(card => card % valueFromInput === 0)
+    res.status(200).send(filteredArr);
+  } else {
+    // if there are no queries, 
+    // return the entire array
     res.status(200).send(cards);
+  }
   
 })
 // create a get endpoint that sends the updatableText string
