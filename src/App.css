@@ -33,12 +33,11 @@
 
 .cards {
   border: 2px solid salmon;
-  height: 300px;
-  width: 400px;
+  width: 80%;
   margin: auto;
   margin-top: 25px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
 }
 .card {
