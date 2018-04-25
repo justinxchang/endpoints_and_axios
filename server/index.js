@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const port = 3001;
 
 const app = express();
 app.use(bodyParser.json());
@@ -62,4 +63,4 @@ app.delete('/api/delete/:index', (req, res) => {
   res.status(200).send(cards);
 })
 
-app.listen(3001, console.log('Docked at 3001'));
+app.listen(port, console.log(`Docked at ${port} 🌵`));

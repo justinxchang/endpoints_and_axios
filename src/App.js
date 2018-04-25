@@ -56,7 +56,7 @@ class App extends Component {
         this.setState({
           clicked: res.data
         })
-      })
+      } )
   }
   //POST
 // create a function to hit an endpoint whenever someone types into the input box
@@ -69,7 +69,6 @@ handleChange(e) {
     })
   })
 }
-
 
 // PUT
 //create a function to hit an endpoint whenever someone types into the update endpoint
