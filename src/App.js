@@ -19,95 +19,66 @@ class App extends Component {
     this.handleFilter = this.handleFilter.bind(this);
   }
   componentDidMount() {
-    // create a test endpoint and hit it when the page loads
-    // set the response to the 'test' prop on state
-    axios.get('/api/test')
-      .then(res => {
-        console.log(res.data);
-        this.setState({
-          test: res.data
-        });
-      })
-      .catch(err => console.log(err));
+    // Step 1-front end request
+    // create anaxios request and hit the test endpoint when the page loads
+    // set the response to the 'test' property on state
+    
+    // Step 2-front end request
     // hit the get cards endpoint so that our cards show up
-    // set the response to the cards prop on state
-   axios.get('/api/cards')
-      .then(res => {
-        this.setState({
-          cards: res.data
-        })
-      })
-    // hit the update endpoint so that our update text shows up
-    // set the response to the update prop on state
-    axios.get('/api/update')
-      .then(res => {
-        this.setState({
-          update: res.data
-        })
-      })
-  }
+    // set the response to the 'cards' property on state
+  
 
-  //create a function called handle click to hit an endpoint when we click the button
-  // set the response to update the clicked prop on state
+    // Step 3-front end request
+    // hit the get endpoint that will send us the textYouCanUpdate variable.
+    // set the response to the 'update' property on state
+    
+
+
+    // end of componentDidMount
+  } // this bracket closes the componentDidMount method. Don't delete it
+
+  // Step 4-front end request
+  //inside the handleClick method, hit the get endpoint that will return the string 'This button has been clicked'
+  // set the response to update the 'clicked' property on state
   handleClick() {
     console.log('clicked the button!');
-    axios.get('/api/click')
-      .then(res => {
-        this.setState({
-          clicked: res.data
-        })
-      })
+
   }
-  //POST
-// create a function to hit an endpoint whenever someone types into the input box
-// set the response to update the input prop on state
-handleChange(e) {
-  axios.post('/api/input', {input: e.target.value})
-  .then(res => {
-    this.setState({
-      input: res.data
-    })
-  })
-}
 
 
-// PUT
-//create a function to hit an endpoint whenever someone types into the update endpoint
-// set the response to update the update prop on state
-handleUpdate(e) {
-  axios.put('/api/update', {input: e.target.value})
-    .then(res => {
-      this.setState({
-        update: res.data
-      })
-    })
+  // Step 5-front end request
+  // inside the handleChange method
+  // hit the post endpoint that will accept your string and send it back
+  // whenever someone types into the input box
+  // set the response to update the 'input' property on state
+  handleChange(e) {
+    
   }
-// DELETE
-// create an input to handle clicking on a card to remove it
-// update the cards array with the response from state
-handleDelete(index) {
-  axios.delete('/api/delete/'+index)
-    .then(res => {
-      this.setState({
-        cards: res.data
-      })
-    })
-}
 
-handleFilter(e) {
-  let filterNum = e.target.value
-  console.log(filterNum);
 
- // create an axios request to 
- // hit our query endpoint 
- // and get filtered cards back
-  axios.get(`/api/cards?filterValue=${filterNum}`)
-    .then(res => {
-      this.setState({
-        cards: res.data
-      })
-    })
-}
+  // Step 6-front end request
+  // PUT
+  //create a function to hit an endpoint whenever someone types into the update endpoint
+  // set the response to update the update prop on state
+
+
+
+  // Step 7-front end request
+  // DELETE
+  // create an input to handle clicking on a card to remove it
+  // update the cards array with the response from state
+  handleDelete(index) {
+
+  }
+
+///////////////////////\\\\\\\\\\\\\\\\\\\\\\\
+///////////////////////\\\\\\\\\\\\\\\\\\\\\\\
+// DO NOT CHANGE ANY CODE ABOVE THIS LINE!!!!!
+///////////////////////\\\\\\\\\\\\\\\\\\\\\\\
+///////////////////////\\\\\\\\\\\\\\\\\\\\\\\
+// everything below this line is set up to work if you are updating 
+// state properly. Feel free to look around at what is happening here, 
+// but only change things at your own risk
   render() {
     let displayCards = this.state.cards.map((card, i) => {
       return <div className="card" onClick={() => this.handleDelete(i)} key={i}>{card}</div>
@@ -137,10 +108,7 @@ handleFilter(e) {
           By Typing here: <input type="text" onChange={this.handleUpdate} />
           
         </section>
-        <div>
-          <label>Filter By Multiples of:</label>
-          <input type="number" onChange={this.handleFilter} />
-        </div>
+        
         <section className="cards">
           {displayCards}
         </section>
