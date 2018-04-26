@@ -16,12 +16,13 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-    this.handleFilter = this.handleFilter.bind(this);
   }
   componentDidMount() {
     // Step 1-front end request
     // create anaxios request and hit the test endpoint when the page loads
     // set the response to the 'test' property on state
+ 
+    
     
     // Step 2-front end request
     // hit the get cards endpoint so that our cards show up
@@ -60,7 +61,9 @@ class App extends Component {
   // PUT
   //create a function to hit an endpoint whenever someone types into the update endpoint
   // set the response to update the update prop on state
+  handleUpdate() {
 
+  }
 
 
   // Step 7-front end request
