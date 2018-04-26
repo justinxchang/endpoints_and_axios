@@ -1,5 +1,9 @@
 .App {
+  color: #2e2e2e;
+  margin-bottom: 50px;
   text-align: center;
+  font-size: 18px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .App-logo {
@@ -9,9 +13,9 @@
 
 .App-header {
   background-color: #222;
+  color: white;
   height: 150px;
   padding: 20px;
-  color: white;
 }
 
 .App-title {
@@ -27,26 +31,118 @@
   to { transform: rotate(360deg); }
 }
 
-.response {
-  font-size: 22px;
+.body-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 150px 150px 1fr;
+  margin-top: 15px; 
 }
 
-.cards {
-  border: 2px solid salmon;
-  width: 80%;
-  margin: auto;
-  margin-top: 25px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+.response {
+  align-items: center;
+  display: flex;
+  font-size: 22px;
+  justify-content: center;
+  width: 100%;
 }
-.card {
-  border: 2px solid #1c1c1c;
-  height: 50px;
+
+.response_text {
+  border: #2e2e2e 2px solid;
+  width: 50%;
+}
+
+.button {
+  background: lightseagreen;
+  border: none;
+  border-radius: 50px;
+  height: 100px;
   width: 100px;
-  margin: 25px;
+}
+
+.button:hover {
+  background: rgb(26, 146, 140);
+}
+
+
+.postInput-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #1b1b1b;
+  flex-direction: column;
+}
+
+.postInput {
+  border-bottom: .5px solid #222;
+  height: 30px;
+  width: 540px;
+}
+
+/* .postInput-label {
+
+} */
+
+.input {
+  background: transparent;
+  border: none;
+  box-shadow: inset #3f3f3f 0 0 5px 1px;
+  outline: none;
+  height: 27px;
+  width: 250px;
+  font-size: 24px;
+  font-family: 'Courier New', Courier, monospace;
+  padding-left: 15px;
+}
+
+.postInput-input:focus {
+  background: #3f3f3f;
+  color: #ffc600  
+}
+
+.postInput-text {
+  font-size: 24px;
+
+}
+
+.postInput-text_response {
+  color: #ffc600;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.update-wrapper {
+  border: #2e2e2e 2px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cards {
+  grid-column-start: 0;
+  grid-column-end: span 2;
+  background: lightcoral;
+  border: 2px solid salmon;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin: auto;
+  margin-top: 25px;
+  width: 80%;
+}
+
+.card {
+  align-items: center;
+  background: #3f3f3f;
+  border: 2px solid #1c1c1c;
+  border-radius: 8px;
+  color: #ffc600;
+  display: flex;
+  height: 50%;
+  justify-content: center;
+  width: 65%;
+}
+
+.card-text {
+  font-size: 48px;
 }
