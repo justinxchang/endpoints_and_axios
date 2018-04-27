@@ -26,32 +26,31 @@ class App extends Component {
     this.updateName = this.updateName.bind(this)
   }
   componentDidMount() {
+    /* Example axios request:
+  GET: axios.get('/api/test')
+        .then(({ data }) => this.setState({ test: data }))
+        .catch((err) => console.log('could not get test', err));
+  PUT: axios.get(`/api/test/${id}`)
+        .then(({ data }) => this.setState({ test: data }))
+        .catch((err) => console.log('could not get test', err));
+        */
     // Step 1-front end request
     // create an axios request and hit the test endpoint when the page loads
     // set the response to the 'test' property on state
-    axios.get('/api/test')
-    .then(({ data }) => this.setState({ test: data }))
-    .catch((err) => console.log('could not get test', err));
-    
+   
 
 
     // Step 2-front end request
     // hit the get cards endpoint so that our cards show up
     // set the response to the 'cards' property on state
-    axios.get('/api/cards')
-      .then(({ data }) => this.setState({ cards: data }))
-      .catch((err) => console.log('could not get cards', err));
-      
-
+   
 
 
     // Step 3-front end request
     // hit the get endpoint that will send us the users.
     // set the response to the 'users' property on state
-    axios.get('/api/users')
-      .then(({ data }) => this.setState({ users: data }))
-      .catch((err) => console.log('could not get users', err));
-      
+   
+
 
 
     // ------------------ end of componentDidMount --------------------
@@ -62,9 +61,6 @@ class App extends Component {
   // set the response to update the 'clicked' property on state
   handleClick() {
     console.log('clicked the button!');
-    axios.get('/api/clicked')
-      .then(({ data }) => this.setState({ clicked: data }))
-      .catch((err) => console.log('could not get clicked', err));
       
 
   }
@@ -77,9 +73,6 @@ class App extends Component {
   // set the response to update the 'input' property on state
   handleChange(e) {
     console.log('you changed something!');
-    axios.post('/api/input', {string: e.target.value})
-      .then(({ data }) => this.setState({ input: data }))
-      .catch((err) => console.log('could not post', err));
       
   }
 
@@ -91,16 +84,9 @@ class App extends Component {
   handleUpdate() {
     console.log('handling the update');
     let { id, name } = this.state;
-   
-    axios.put(`/api/users/${id}`, { name })
-      .then(resp => {
-        console.log(resp, 'updated')
-        this.setState({
-          users: resp.data
-        });
-      })
-      .catch((err) => console.log('could not update', err));
-
+   // leave the stuff above this line
+   // write code here:
+    
   }
 
 
@@ -110,10 +96,8 @@ class App extends Component {
   // update the cards array with the response from state
   handleDelete(index) {
     console.log('handling the delete');
-    axios.delete(`/api/delete/${index}`)
-    .then(({ data }) => this.setState({ cards: data }))
-    .catch((err) => console.log('could not delete', err));
-
+    
+    
   }
 
   ///////////////////////\\\\\\\\\\\\\\\\\\\\\\\
