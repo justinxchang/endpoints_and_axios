@@ -1,7 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const Access_Key = require('./config');
-const axios = require('axios');
 
 const app = express();
 app.use(bodyParser.json());
@@ -38,7 +36,9 @@ app.put('/api/friends/:id', function(req, res) {
 
 // Step 1-server endpoint: 
 // create a test endpoint that sends simple text
-
+app.get('/api/test', function(req, res) {
+  res.status(200).send('The test is working!!!')
+});
 
 
 // Step 2-server endpoint: 
@@ -57,14 +57,19 @@ app.get('/api/users', function(req, res) {
 
 // Step 4-server endpoint:
 // create a get endpoint that sends the string "This button has been clicked"
-
+app.get('/api/clicked', function(req, res) {
+  res.status(200).send('This button has been clicked');
+})
 
 
 // Step 5-server endpoint:
-// create a post endpoint that receives a string and sends it back
+// create a post endpoint that receives a string on the body and sends it back
 // after adding 👏 on the end
 // (copy that emoji to make it easier)
-
+app.post('/api/input', function(req, res) {
+  let { string } = req.body;
+  res.status(200).send(string+'👏');
+})
 
 
 // Step 6-server endpoint:
@@ -84,6 +89,10 @@ app.put('/api/users/:id', function(req, res) {
 // Step 7-server endpoint:
 // create a delete endpoint that receives an index and removes that item from the 
 // cards array (hint: use a url param like '/:id')
-
+app.delete('/api/delete/:id', function(req, res) {
+  let index = users.findIndex( ({_id}) => +_id === +id )
+  index >= 0 ? users.splice(index, 1) : null;
+  res.status(200).send(users);
+});
 
 app.listen(3001, console.log('Docked at 3001'));
