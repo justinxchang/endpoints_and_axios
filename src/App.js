@@ -37,19 +37,22 @@ class App extends Component {
     // Step 1-front end request
     // create an axios request and hit the test endpoint when the page loads
     // set the response to the 'test' property on state
-   
+   axios.get('/test')
+        .then(res => this.setState({test: res.data}))
 
 
     // Step 2-front end request
     // hit the get cards endpoint so that our cards show up
     // set the response to the 'cards' property on state
-   
+   axios.get('/cards')
+       .then(res => this.setState({cards: res.data}))
 
 
     // Step 3-front end request
     // hit the get endpoint that will send us the users.
     // set the response to the 'users' property on state
-   
+   axios.get('/users')
+        .then(res => this.setState({users: res.data}))
 
 
 
@@ -61,6 +64,8 @@ class App extends Component {
   // set the response to update the 'clicked' property on state
   handleClick() {
     console.log('clicked the button!');
+      axios.get('/click')
+           .then(res => this.setState({clicked: res.data}))
       
 
   }
@@ -73,6 +78,10 @@ class App extends Component {
   // set the response to update the 'input' property on state
   handleChange(e) {
     console.log('you changed something!');
+    //const {value} = e.target            //event.target.value, however, value won't match the backend, which says string
+    const string = e.target.value
+    axios.post('/typestuff', {string})
+          .then(res => this.setState({input: res.data}))
       
   }
 
@@ -80,12 +89,14 @@ class App extends Component {
   // Step 6-front end request
   // PUT
   //create a function to hit an endpoint whenever someone types into the update endpoint
-  // set the response to update the update prop on state
+  // set the response to update the users prop on state
   handleUpdate() {
     console.log('handling the update');
     let { id, name } = this.state;
    // leave the stuff above this line
    // write code here:
+   axios.put(`/users/${id}`, {name})
+        .then(res => this.setState({users: res.data}))
     
   }
 
@@ -96,6 +107,8 @@ class App extends Component {
   // update the cards array with the response from state
   handleDelete(index) {
     console.log('handling the delete');
+    axios.delete(`/byebye/${index}`)
+         .then(res => this.setState({cards: res.data}))
     
     
   }
